@@ -1,1 +1,654 @@
-<h1>Welcome to my e-portfolio</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional E-Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#home" class="flex items-center py-4 px-2">
+                            <span class="font-semibold text-gray-900 text-2xl gradient-text">My Portfolio</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link py-4 px-2 text-gray-900 font-medium active-nav">Home</a>
+                    <a href="#reflection" class="nav-link py-4 px-2 text-gray-500 hover:text-gray-900 font-medium">Reflection</a>
+                    <div class="relative group">
+                        <button class="nav-link py-4 px-2 text-gray-500 hover:text-gray-900 font-medium flex items-center">
+                            <span>Units</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                            <a href="#unit1" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Unit 1</a>
+                            <a href="#unit2" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Unit 2</a>
+                            <a href="#unit3" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Unit 3</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link py-4 px-2 text-gray-500 hover:text-gray-900 font-medium flex items-center">
+                            <span>Project</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                            <a href="#proposal" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Proposal</a>
+                            <a href="#final" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Final Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-blue-500"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden mobile-menu">
+            <ul>
+                <li><a href="#home" class="block text-sm px-2 py-4 hover:bg-blue-50">Home</a></li>
+                <li><a href="#reflection" class="block text-sm px-2 py-4 hover:bg-blue-50">Reflection</a></li>
+                <li class="relative">
+                    <button class="w-full text-left block text-sm px-2 py-4 hover:bg-blue-50 flex justify-between items-center">
+                        <span>Units</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="hidden bg-gray-100">
+                        <li><a href="#unit1" class="block text-sm px-4 py-2 hover:bg-blue-50">Unit 1</a></li>
+                        <li><a href="#unit2" class="block text-sm px-4 py-2 hover:bg-blue-50">Unit 2</a></li>
+                        <li><a href="#unit3" class="block text-sm px-4 py-2 hover:bg-blue-50">Unit 3</a></li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <button class="w-full text-left block text-sm px-2 py-4 hover:bg-blue-50 flex justify-between items-center">
+                        <span>Project</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="hidden bg-gray-100">
+                        <li><a href="#proposal" class="block text-sm px-4 py-2 hover:bg-blue-50">Proposal</a></li>
+                        <li><a href="#final" class="block text-sm px-4 py-2 hover:bg-blue-50">Final Project</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Home Page -->
+        <section id="home" class="min-h-screen flex items-center fade-in">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                            My name is <span class="gradient-text">Kanan Akparov</span>
+                        </h1>
+                        <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
+                           Director of Dost Digitial Innovation Centre
+                        </h2>
+                        <p class="text-gray-600 mb-8 text-lg">
+                            This e-portfolio was built for the Deciphering Big Data module (April 2025) to showcase all completed chapters, reflections, projects, and units.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                                View My Work
+                            </a>
+                            <a href="#contact" class="border border-blue-600 text-blue-600 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 hover:bg-blue-50">
+                                Contact Me
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                            <img src="https://www.my-course.co.uk/pluginfile.php/1251592/user/icon/remui/f3?rev=18057033" 
+                                 alt="Profile" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-600 to-transparent opacity-20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl my-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">My Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-blue-600 mb-4">
+                            <i class="fas fa-code text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Frontend</h3>
+                        <p class="text-gray-600">HTML, CSS, JavaScript, React, Vue</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-indigo-600 mb-4">
+                            <i class="fas fa-server text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Backend</h3>
+                        <p class="text-gray-600">Node.js, Express, MongoDB, MySQL</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-purple-600 mb-4">
+                            <i class="fas fa-paint-brush text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Design</h3>
+                        <p class="text-gray-600">UI/UX, Figma, Adobe XD, Photoshop</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-green-600 mb-4">
+                            <i class="fas fa-mobile-alt text-4xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Responsive</h3>
+                        <p class="text-gray-600">Mobile-first design, Tailwind CSS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection Page -->
+        <section id="reflection" class="min-h-screen py-16 fade-in hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                    My <span class="gradient-text">Reflection</span>
+                </h1>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 card-hover">
+                    <div class="p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Learning Journey</h2>
+                        <p class="text-gray-600 mb-4">
+                            Throughout this course, I've gained invaluable knowledge and skills that have transformed my understanding of web development. 
+                            From the fundamentals of HTML and CSS to advanced JavaScript concepts, each module has built upon the last, creating a comprehensive learning experience.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            One of the most significant realizations was how interconnected all aspects of web development are. Design influences functionality, 
+                            which in turn affects user experience. This holistic view has helped me become a more thoughtful and effective developer.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8 card-hover">
+                    <div class="p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Challenges & Growth</h2>
+                        <p class="text-gray-600 mb-4">
+                            Like any learning journey, there were challenges. Mastering responsive design was particularly demanding, 
+                            as it required not just technical skills but also a shift in perspective about how users interact with websites across different devices.
+                        </p>
+                        <p class="text-gray-600">
+                            Overcoming these challenges has been incredibly rewarding. Debugging complex issues, optimizing performance, 
+                            and seeing my projects come to life has reinforced my passion for web development and given me confidence in my abilities.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Future Goals</h2>
+                        <p class="text-gray-600">
+                            Moving forward, I plan to continue expanding my knowledge, particularly in emerging technologies like WebAssembly and Progressive Web Apps. 
+                            I'm also excited to contribute to open-source projects and collaborate with other developers to create innovative solutions.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#units" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                Explore my unit work
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Units Section -->
+        <section id="units" class="min-h-screen py-16 fade-in hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                    Course <span class="gradient-text">Units</span>
+                </h1>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Unit 1 -->
+                    <div id="unit1" class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                        <h2 class="text-2xl font-bold text-white">Unit 1</h2>
+                        </div>
+                        <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Wrangling Basics</h3>
+                        <p class="text-gray-600 mb-4">
+                            Learned the fundamentals of data wrangling, cleaning, and exploring large datasets. Discussed common risks and limitations of data preparation.
+                        </p>
+                        <ul class="text-gray-600 mb-4 space-y-2">
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Explored data cleaning methods
+                            </li>
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Participated in discussion on data wrangling challenges
+                            </li>
+                            <li class="flex items-start">
+                            <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Wrote a simple Python script for cleaning missing values
+                            </li>
+                        </ul>
+                        <a href="units/unit1.html" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                            View Work
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                        </div>
+                    </div>
+                    </div>
+        
+                    
+                    <!-- Unit 2 -->
+                    <div id="unit2" class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                            <h2 class="text-2xl font-bold text-white">Unit 2</h2>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">JavaScript Essentials</h3>
+                            <p class="text-gray-600 mb-4">
+                                Core JavaScript concepts including variables, functions, DOM manipulation, and event handling. Built interactive web components.
+                            </p>
+                            <ul class="text-gray-600 mb-4 space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Variables & Data Types
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Functions & Scope
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    DOM Manipulation
+                                </li>
+                            </ul>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                                View Work
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Unit 3 -->
+                    <div id="unit3" class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center">
+                            <h2 class="text-2xl font-bold text-white">Unit 3</h2>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Advanced Concepts</h3>
+                            <p class="text-gray-600 mb-4">
+                                Explored modern JavaScript features, asynchronous programming, APIs, and frameworks. Created dynamic, data-driven applications.
+                            </p>
+                            <ul class="text-gray-600 mb-4 space-y-2">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    ES6+ Features
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Async/Await
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    API Integration
+                                </li>
+                            </ul>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                                View Work
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Section -->
+        <section id="project" class="min-h-screen py-16 fade-in hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                    My <span class="gradient-text">Project</span>
+                </h1>
+                
+                <!-- Project Proposal -->
+                <div id="proposal" class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-hover">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gradient-to-br from-blue-500 to-indigo-600 p-8 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-lightbulb text-white text-6xl mb-4"></i>
+                                <h2 class="text-2xl font-bold text-white">Project Proposal</h2>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Interactive Portfolio Platform</h3>
+                            <p class="text-gray-600 mb-4">
+                                The goal of this project is to create an interactive portfolio platform that showcases my skills and projects in an engaging way. 
+                                The platform will feature dynamic content loading, smooth animations, and a clean, modern design.
+                            </p>
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Single-page application with smooth transitions
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Project showcase with filterable categories
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Interactive skills visualization
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="far fa-calendar-alt mr-2"></i>
+                                <span>Proposed: June 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Final Project -->
+                <div id="final" class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="md:flex flex-row-reverse">
+                        <div class="md:w-1/3 bg-gradient-to-br from-purple-500 to-pink-600 p-8 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-trophy text-white text-6xl mb-4"></i>
+                                <h2 class="text-2xl font-bold text-white">Final Project</h2>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Completed Portfolio Platform</h3>
+                            <p class="text-gray-600 mb-4">
+                                The final project is a fully responsive portfolio website built with modern web technologies. 
+                                It showcases my projects, skills, and learning journey through an intuitive and visually appealing interface.
+                            </p>
+                            <div class="mb-6">
+                                <h4 class="font-medium text-gray-800 mb-2">Technologies Used:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">HTML5</span>
+                                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">CSS3</span>
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">JavaScript</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Tailwind CSS</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Git</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg inline-flex items-center">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="border border-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg inline-flex items-center hover:bg-gray-50">
+                                    <i class="fab fa-github mr-2"></i>
+                                    View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl my-12">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Get In Touch</h2>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-blue-600 p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                            <p class="mb-6">Feel free to reach out to me for collaborations or just a friendly hello.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope text-xl mr-4 mt-1"></i>
+                                    <span>john.doe@example.com</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone-alt text-xl mr-4 mt-1"></i>
+                                    <span>+1 (555) 123-4567</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-xl mr-4 mt-1"></i>
+                                    <span>San Francisco, CA</span>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="text-xl font-semibold mb-4">Follow Me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-white hover:text-blue-200 text-2xl">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-blue-200 text-2xl">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-blue-200 text-2xl">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-blue-200 text-2xl">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold">John Doe</h2>
+                    <p class="text-gray-400">Web Developer & Designer</p>
+                </div>
+                <div class="flex justify-center md:justify-end space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Handle mobile submenu toggles
+        document.querySelectorAll('.mobile-menu li button').forEach(button => {
+            button.addEventListener('click', () => {
+                const submenu = button.nextElementSibling;
+                submenu.classList.toggle('hidden');
+            });
+        });
+
+        // Navigation between sections
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                // Hide all sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show target section
+                document.getElementById(targetId).classList.remove('hidden');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active-nav');
+                    navLink.classList.add('text-gray-500');
+                    navLink.classList.remove('text-gray-900');
+                });
+                
+                this.classList.add('active-nav');
+                this.classList.remove('text-gray-500');
+                this.classList.add('text-gray-900');
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                // Scroll to top of section
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Initialize with home section visible
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('section').forEach(section => {
+                if (section.id !== 'home') {
+                    section.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
